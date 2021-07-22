@@ -1,0 +1,18 @@
+---
+- name: ensure has autostart dir
+  file:
+    path: ~/.config/autostart/
+    state: directory
+
+- name: symlink copy scripts
+  file:
+    src: '{{ playbook_dir }}/roles/files/config/autostart/mystartup.sh'
+    dest: ~/.config/autostart/mystartup.sh
+    state: link
+
+- name: symlink mystartup.desktop file
+  tags: startup
+  file:
+    src: '{{ playbook_dir }}/roles/files/config/autostart/mystartup.desktop'
+    dest: ~/.config/autostart/mystartup.desktop
+    state: link

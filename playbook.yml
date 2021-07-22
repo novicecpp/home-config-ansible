@@ -13,4 +13,6 @@
   #- hashicorp_client
   #- keybase
   #- nvidia_driver
-  - chrome
+  #- chrome
+  #- install_mystartup
+  #- install_desktop
