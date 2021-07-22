@@ -1,0 +1,9 @@
+---
+- name: install google chrome rpm keys
+  include_role:
+    name: install_rpm_with_key
+  vars:
+    rpm_key: "https://dl.google.com/linux/linux_signing_key.pub"
+    rpm_key_fingerprint: 4CCA 1EAF 950C EE4A B839 76DC A040 830F 7FAC 5991
+    rpm_package:
+    - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm

@@ -6,7 +6,7 @@
     fingerprint: "{{ rpm_key_fingerprint }}"
   become: yes
 
-- name: install rpm repo
+- name: install rpm
   dnf:
     name: '{{ rpm_package }}'
     state: present

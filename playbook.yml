@@ -4,7 +4,6 @@
   roles:
   #- install_os_package
   #- flatpak
-  #- install_rpm_package
   #- install_fonts
   #- k8s_client_components
   #- install_pip_package
@@ -12,4 +11,6 @@
   #- pyenv
   #- docker
   #- hashicorp_client
-  - keybase
+  #- keybase
+  #- nvidia_driver
+  - chrome
