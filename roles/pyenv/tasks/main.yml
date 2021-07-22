@@ -1,0 +1,18 @@
+---
+- name: downloads pyenv
+  include_role:
+    name: download_and_extract
+  vars:
+    download_url: https://github.com/pyenv/pyenv/archive/refs/tags/v2.0.3.tar.gz
+    checksum: sha256:929c7dfcdf3ca3f584e177ede96950aeef40d3300bf68560add9dd1fb9059156
+    from_path: 'pyenv-2.0.3/'
+    to_path: '~/.local/share/pyenv'
+
+- name: download pyenv-virtualenv
+  include_role:
+    name: download_and_extract
+  vars:
+    download_url: https://github.com/pyenv/pyenv-virtualenv/archive/refs/tags/v1.1.5.tar.gz
+    checksum: sha256:27ae3de027a6f6dccdca4085225512e559c6b94b31625bd2b357a18890a1e618
+    from_path: 'pyenv-virtualenv-1.1.5/'
+    to_path: '~/.local/share/pyenv/plugins/pyenv-virtualenv'
