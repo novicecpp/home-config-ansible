@@ -1,0 +1,30 @@
+#+Startup: showall
+* init and install package with home-config-ansible
+#+BEGIN_SRC bash
+cd ~
+git clone https://github.com/novicecpp/home-config-ansible
+cd home-config-ansible
+bash init.sh
+bash run.sh
+cd ..
+* copy backup file to local disk and extract it.
+#+BEGIN_SRC bash
+cd ~
+cp path/to/backup/myhome.tar.zst myhome.tar.zst
+tar -I zstd -xf myhome.tar.zst
+#+END_SRC
+* (Optional) clone home-config/home-config-private to myhome. Need ssh-agent to clone private repo.
+#+BEGIN_SRC bash
+cd ~
+eval $(ssh-agent)
+ssh-add myhome/home-config-private_deploy_key
+git clone https://github.com/novicecpp/home-config
+cd home-config
+git submodule update --init
+#+END_SRC
+* run apply-config.sh to apply config from home-config
+#+BEGIN_SRC bash
+cd ~
+cd ~/myhome/home-config
+bash apply-config.sh
+#+END_SRC
