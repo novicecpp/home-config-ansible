@@ -1,0 +1,8 @@
+- hosts: localhost
+  connection: local
+  become: no
+  roles:
+  #- install_os_package
+  #- flatpak
+  #- install_rpm_package
+  #- install_fonts

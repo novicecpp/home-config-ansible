@@ -1,0 +1,5 @@
+flatpak_package:
+- com.discordapp.Discord
+- com.spotify.Client
+- com.slack.Slack
+- us.zoom.Zoom

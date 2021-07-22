@@ -1,0 +1,43 @@
+fedora_dnf_package:
+- tmux
+- gnome-tweaks
+- cowsay
+- zstd
+- the_silver_searcher
+- fd-find
+- fzf
+- wine
+- ncdu
+- autossh
+- xsel # for tmux copy yank to clipboard
+- keepassxc
+- inotify-tools
+- pv
+- age
+- dnf-plugin-system-upgrade
+- openssl
+- xset
+- golang-github-google-jsonnet
+- pandoc
+- ripgrep
+- golang-sigs-k8s-kustomize
+- remmina
+# for emacs builds
+- autoconf
+- texinfo
+- gtk3-devel
+- webkit2gtk3-devel
+- libgccjit-devel
+- jansson-devel
+- giflib-devel
+- gnutls-devel
+- libXpm-devel
+- libjpeg-turbo-devel
+- ncurses-devel
+- xapps # require by emacs gui (get gtk error)
+# computer language
+- ruby
+- golang
+- nodejs
+- npm
+- yarnpkg

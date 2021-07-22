@@ -1,0 +1,17 @@
+---
+- name: Upgrade all packages
+  dnf:
+    name: '*'
+    state: latest
+  become: yes
+  register: res
+  retries: 3
+
+
+- name: install dnf package
+  dnf:
+    name: "{{ fedora_dnf_package }}"
+    state: present
+  become: yes
+  register: res
+  retries: 3

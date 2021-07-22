@@ -1,0 +1,23 @@
+---
+- name: ensure fonts dir
+  file:
+    path: ~/.local/share/fonts
+    state: directory
+
+- name: download liberation-mono font
+  include_role:
+    name: download_and_extract
+  vars:
+    download_url: https://www.fontsquirrel.com/fonts/download/liberation-mono
+    extract_path: ~/.local/share/fonts/
+
+- name: download all-the-icons fonts
+  include_role:
+    name: git_clone_and_copy
+  vars:
+    git_url: https://github.com/domtronn/all-the-icons.el
+    from_path: fonts/
+    to_path: ~/.local/share/fonts
+
+- name: refresh front cache
+  command: fc-cache -v -f

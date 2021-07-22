@@ -1,0 +1,13 @@
+---
+- set_fact:
+    _filename: "{{ download_url | basename }}"
+
+- name: "download {{ download_url }}"
+  get_url:
+    url: "{{ download_url }}"
+    dest: "~/Downloads/{{ _filename }}"
+
+- name: "extract {{ _filename }}"
+  unarchive:
+    src: "~/Downloads/{{ _filename }}"
+    dest: "{{ extract_path }}"

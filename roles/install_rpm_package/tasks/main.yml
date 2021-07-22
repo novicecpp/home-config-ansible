@@ -1,0 +1,4 @@
+---
+- name: install rpm packagage
+  include_tasks: '{{ item }}.yml'
+  with_items: '{{ rpm_install_package }}'

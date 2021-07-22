@@ -1,0 +1,17 @@
+---
+- name: download google chrome
+  get_url:
+    url: https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+    dest: ~/Downloads
+- name: add google rpm key
+  rpm_key:
+    state: present
+    key: https://dl.google.com/linux/linux_signing_key.pub
+    fingerprint: 4CCA 1EAF 950C EE4A B839 76DC A040 830F 7FAC 5991
+  become: yes
+
+- name: install google chrome with dnf
+  dnf:
+    name: '{{ ansible_user_dir }}/Downloads/google-chrome-stable_current_x86_64.rpm'
+    state: present
+  become: yes
