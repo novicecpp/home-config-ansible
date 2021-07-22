@@ -7,3 +7,4 @@ pip_package:
 - yapf
 - yq
 - glances
+- docker-compose
