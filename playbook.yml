@@ -6,4 +6,5 @@
   #- flatpak
   #- install_rpm_package
   #- install_fonts
-  - k8s_client_components
+  #- k8s_client_components
+  - install_pip_package

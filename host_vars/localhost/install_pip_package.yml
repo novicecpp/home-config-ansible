@@ -1,0 +1,9 @@
+pip_package:
+- boto3
+- ipython
+- pipenv
+- poetry
+- sshuttle
+- yapf
+- yq
+- glances

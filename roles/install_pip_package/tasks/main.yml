@@ -1,0 +1,7 @@
+---
+- name: install pip package
+  tags: pip
+  pip:
+    name: "{{ pip_package }}"
+    state: latest
+    extra_args: --user
