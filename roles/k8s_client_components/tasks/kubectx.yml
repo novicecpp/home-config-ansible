@@ -1,0 +1,33 @@
+---
+- name: downloads kubectx
+  tags: kubectx
+  git:
+    repo: https://github.com/ahmetb/kubectx
+    dest: ~/.local/share/kubectx
+    version: tags/v0.8.0
+
+- name: symlink kubectx kubens
+  tags: kubectx
+  file:
+    src: '~/.local/share/kubectx/{{ item }}'
+    dest: '~/.local/bin/{{ item }}'
+    state: link
+  with_items:
+  - kubectx
+  - kubens
+
+- name: ensure ~/.bash_completion.d dir
+  tags: kubectx
+  file:
+    path: ~/.bash_completion.d
+    state: directory
+
+- name: symlink kubectx kubens bash completion
+  tags: kubectx
+  file:
+    src: '~/.local/share/kubectx/completion/{{ item }}.bash'
+    dest: '~/.bash_completion.d/{{ item }}.bash'
+    state: link
+  with_items:
+  - kubectx
+  - kubens

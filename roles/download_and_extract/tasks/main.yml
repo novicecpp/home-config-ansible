@@ -6,8 +6,25 @@
   get_url:
     url: "{{ download_url }}"
     dest: "~/Downloads/{{ _filename }}"
+    checksum: "{{ checksum }}"
+  when: checksum is defined
+
+- name: "download {{ download_url }}"
+  get_url:
+    url: "{{ download_url }}"
+    dest: "~/Downloads/{{ _filename }}"
+  when: checksum is not defined
+
+- name: Create temporary file
+  tempfile:
+    state: directory
+    suffix: extract
+  register: extract_dir
 
 - name: "extract {{ _filename }}"
   unarchive:
     src: "~/Downloads/{{ _filename }}"
-    dest: "{{ extract_path }}"
+    dest: "{{ extract_dir.path }}"
+
+- name: "copy with rsync from {{ form_path }} to {{ to_path }}"
+  shell: 'rsync -av {{ extract_dir.path }}/{{ from_path }} {{ to_path }}'

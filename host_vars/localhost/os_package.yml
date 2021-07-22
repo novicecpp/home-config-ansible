@@ -20,7 +20,6 @@ fedora_dnf_package:
 - golang-github-google-jsonnet
 - pandoc
 - ripgrep
-- golang-sigs-k8s-kustomize
 - remmina
 # for emacs builds
 - autoconf

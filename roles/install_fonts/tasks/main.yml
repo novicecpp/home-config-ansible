@@ -9,14 +9,17 @@
     name: download_and_extract
   vars:
     download_url: https://www.fontsquirrel.com/fonts/download/liberation-mono
-    extract_path: ~/.local/share/fonts/
+    checksum: sha256:02f7946d814ab3061a443eec22aca73448e886123e2c64d0a79875693750e486
+    from_path: '*.ttf'
+    to_path: ~/.local/share/fonts/
 
 - name: download all-the-icons fonts
   include_role:
-    name: git_clone_and_copy
+    name: download_and_extract
   vars:
-    git_url: https://github.com/domtronn/all-the-icons.el
-    from_path: fonts/
+    download_url: https://github.com/domtronn/all-the-icons.el/archive/refs/tags/4.0.1.tar.gz
+    checksum: sha256:30ac8a44efdf638e893b9f802cde3388da8776d39296dcc83694720ba74950d0
+    from_path: 'all-the-icons.el-4.0.1/fonts/*.ttf'
     to_path: ~/.local/share/fonts
 
 - name: refresh front cache
