@@ -1,4 +1,3 @@
 rpm_install_package:
 - rpmfusion
 - chrome
-- keybase

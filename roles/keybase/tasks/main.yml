@@ -1,0 +1,16 @@
+---
+- name: install keybase repo
+  include_role:
+    name: install_rpm_with_key
+  vars:
+    rpm_key: https://keybase.io/docs/server_security/code_signing_key.asc
+    rpm_key_fingerprint: 222B 85B0 F90B E2D2 4CFE B93F 4748 4E50 656D 16C7
+    rpm_package:
+    - https://prerelease.keybase.io/keybase_amd64.rpm
+
+- name: install keybase
+  dnf:
+    name:
+    - keybase
+    state: present
+  become: yes

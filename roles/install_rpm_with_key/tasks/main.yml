@@ -1,0 +1,13 @@
+---
+- name: import key
+  rpm_key:
+    state: present
+    key: "{{ rpm_key }}"
+    fingerprint: "{{ rpm_key_fingerprint }}"
+  become: yes
+
+- name: install rpm repo
+  dnf:
+    name: '{{ rpm_package }}'
+    state: present
+  become: yes

@@ -10,5 +10,6 @@
   #- install_pip_package
   #- awscli
   #- pyenv
-  - docker
-  - hashicorp_client
+  #- docker
+  #- hashicorp_client
+  - keybase
