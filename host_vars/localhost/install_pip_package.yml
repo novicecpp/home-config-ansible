@@ -9,3 +9,8 @@ pip_package:
 - glances
 - docker-compose
 - aws2-wrap
+- black
+- jedi-language-server
+- pylint
+- flake8
+- bandit
