@@ -12,7 +12,8 @@
   #- docker
   #- hashicorp_client
   #- keybase
-  #- nvidia_driver
   #- chrome
+  #- tpm
   #- install_mystartup
   #- install_desktop
+  #- nvidia_driver

@@ -11,9 +11,6 @@
     state: directory
 
 - name: export kubectl bash completion
-  tags:
-  - kubectl
-  - single
   command: bash -c 'kubectl completion bash > ~/.bash_completion.d/kubectl.bash'
 
 - name: install kubelogin
