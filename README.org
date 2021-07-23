@@ -1,0 +1,2 @@
+* home-config-ansible
+see [[file:INSTALL.org::][INSTALL.org]]
