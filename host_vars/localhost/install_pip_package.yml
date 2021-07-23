@@ -8,3 +8,4 @@ pip_package:
 - yq
 - glances
 - docker-compose
+- aws2-wrap
