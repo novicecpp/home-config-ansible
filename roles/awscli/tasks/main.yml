@@ -8,6 +8,11 @@
     from_path: 'aws'
     to_path: '/tmp'
 
+- name: clean previous install directory
+  file:
+    path: ~/.local/share/aws-cli
+    state: absent
+
 - name: run install commands
   tags: awscli
   command: /tmp/aws/install -i ~/.local/share/aws-cli -b ~/.local/bin
