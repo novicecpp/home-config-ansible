@@ -9,7 +9,6 @@
     name: download_and_extract
   vars:
     download_url: https://www.fontsquirrel.com/fonts/download/liberation-mono
-    checksum: sha256:02f7946d814ab3061a443eec22aca73448e886123e2c64d0a79875693750e486
     from_path: '*.ttf'
     to_path: ~/.local/share/fonts/
 
