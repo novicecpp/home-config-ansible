@@ -10,7 +10,6 @@ fedora_dnf_package:
 - ncdu
 - autossh
 - xsel # for tmux copy yank to clipboard
-- keepassxc
 - inotify-tools
 - pv
 - age
@@ -20,7 +19,10 @@ fedora_dnf_package:
 - golang-github-google-jsonnet
 - pandoc
 - ripgrep
+- jq
 - remmina
+- virt-manager
+- libvirt
 # for emacs builds
 - autoconf
 - texinfo
