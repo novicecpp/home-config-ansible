@@ -1,0 +1,9 @@
+---
+- name: copy x11 keyboard config
+  copy:
+    src: etc/X11/xorg.conf.d/10-keyboard.conf
+    dest: etc/X11/xorg.conf.d/10-keyboard.conf
+  become: yes
+
+- name: run specific de tasks
+  include_tasks: "{{ ansible_env.XDG_SESSION_DESKTOP }}.yml"

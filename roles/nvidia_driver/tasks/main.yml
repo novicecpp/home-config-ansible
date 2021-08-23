@@ -6,3 +6,11 @@
     - xorg-x11-drv-nvidia-cuda
     state: present
   become: yes
+
+# fix xorg with intel stutter when disable laptops display
+- name: make nvidia as primary gpu
+  copy:
+    src: etc/X11/xorg.conf.d/10-nvidia.conf
+    dest: /etc/X11/xorg.conf.d/10-nvidia.conf
+  when: ansible_env.XDG_SESSION_TYPE == 'x11'
+  become: yes

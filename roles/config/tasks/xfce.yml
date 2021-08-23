@@ -1,0 +1,13 @@
+---
+- name: ensure directory exists
+  file:
+    path: .config/xfce4/xfconf/xfce-perchannel-xml/
+    recurse: yes
+    mode: '0700'
+    state: directory
+
+- name: copy keyboard repeat rate config
+  copy:
+    src: config/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml
+    dest: ~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml
+    mode: '0644'
