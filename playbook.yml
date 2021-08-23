@@ -2,18 +2,18 @@
   connection: local
   become: no
   roles:
-  #- install_os_package
-  #- flatpak
-  #- install_fonts
-  #- k8s_client_components
-  #- install_pip_package
-  #- awscli
-  #- pyenv
-  #- docker
-  #- hashicorp_client
-  #- keybase
-  #- chrome
-  #- tpm
-  #- install_mystartup
-  #- install_desktop
-  #- nvidia_driver
+  - install_os_package
+  - config
+  - flatpak
+  - install_fonts
+  - install_pip_package
+  - k8s_client_components
+  - awscli
+  - pyenv
+  - docker
+  - hashicorp_client
+  - keybase
+  - chrome
+  - tpm
+  - install_desktop
+  - nvidia_driver
