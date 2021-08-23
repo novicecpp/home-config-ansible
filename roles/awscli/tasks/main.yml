@@ -16,3 +16,6 @@
 - name: run install commands
   tags: awscli
   command: /tmp/aws/install -i ~/.local/share/aws-cli -b ~/.local/bin
+
+- name: aws bash completion
+  command: bash -c 'echo "complete -C aws_completer aws" > ~/.bash_completion.d/aws.bash'
