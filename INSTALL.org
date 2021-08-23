@@ -28,3 +28,6 @@ cd ~
 cd ~/myhome/home-config
 bash apply-config.sh
 #+END_SRC
+* if dnf has updated linux-firmware (fedora), restart cold boot to apply too.
+for lenovo X1/P1,
+remove power cord > restart and open bios menu > power > turn of built-in battery > wait 5 seconds > plug in power cord
