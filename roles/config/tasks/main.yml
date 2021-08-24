@@ -2,8 +2,12 @@
 - name: copy x11 keyboard config
   copy:
     src: etc/X11/xorg.conf.d/10-keyboard.conf
-    dest: etc/X11/xorg.conf.d/10-keyboard.conf
+    dest: /etc/X11/xorg.conf.d/10-keyboard.conf
   become: yes
 
+- name: get XDG_SESSION_DESKTOP
+  command: ./cmd/find_de.sh
+  register: reg
+
 - name: run specific de tasks
-  include_tasks: "{{ ansible_env.XDG_SESSION_DESKTOP }}.yml"
+  include_tasks: "{{ reg.stdout }}.yml"
