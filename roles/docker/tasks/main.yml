@@ -13,6 +13,14 @@
 - name: add user to docker group
   command: usermod -aG docker "{{ ansible_user_id }}"
   become: yes
+- name: ensure directory
+  file:
+    path: /etc/docker/
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  become: yes
 - name: copy docker daemon config
   copy:
     src: etc/docker/daemon.json
