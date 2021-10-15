@@ -23,6 +23,10 @@ fedora_dnf_package:
 - remmina
 - virt-manager
 - libvirt
+- mpv
+- iperf3
+- gimp
+- wireshark
 # for emacs builds
 - autoconf
 - texinfo
