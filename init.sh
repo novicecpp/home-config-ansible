@@ -9,7 +9,7 @@ fi
 USERNAME=$(who | head -n1 | awk '{print $1}')
 echo $USERNAME
 >2 echo "sudo no password with \"$USERNAME\""
-dnf install -y emacs
+dnf install -y emacs python-pip
 cat > /etc/sudoers.d/${USERNAME} \
     <<<"""${USERNAME}        ALL=(ALL)       NOPASSWD: ALL"""
 sudo -H -u ${USERNAME} python3 -m pip install --user "ansible<3"
