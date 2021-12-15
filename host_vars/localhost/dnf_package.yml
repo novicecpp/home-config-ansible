@@ -1,4 +1,4 @@
-fedora_dnf_package:
+fedora_package:
 - tmux
 - gnome-tweaks
 - cowsay
@@ -23,7 +23,6 @@ fedora_dnf_package:
 - remmina
 - virt-manager
 - libvirt
-- mpv
 - iperf3
 - gimp
 - wireshark
@@ -46,3 +45,7 @@ fedora_dnf_package:
 - nodejs
 - npm
 - yarnpkg
+
+rpmfusion_package:
+  - mpv
+  - vlc

@@ -8,9 +8,17 @@
   retries: 3
 
 
-- name: install dnf package
+- name: install fedora package
   dnf:
-    name: "{{ fedora_dnf_package }}"
+    name: "{{ fedora_package }}"
+    state: present
+  become: yes
+  register: res
+  retries: 3
+
+- name: install rpmfusion package
+  dnf:
+    name: "{{ rpmfusion_package }}"
     state: present
   become: yes
   register: res
