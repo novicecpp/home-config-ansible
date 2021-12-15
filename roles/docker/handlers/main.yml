@@ -1,6 +1,5 @@
 ---
 - name: start docker
-  tags: docker
   systemd:
     name: docker
     state: started

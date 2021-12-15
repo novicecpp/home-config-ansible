@@ -27,6 +27,8 @@
     dest: /etc/docker/daemon.json
     mode: '0644'
   become: yes
+  notify:
+    - start docker
 - name: download docker credential helper
   include_role:
     name: download_and_extract
