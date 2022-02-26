@@ -26,6 +26,8 @@ fedora_package:
 - iperf3
 - gimp
 - wireshark
+- texlive-pdfjam
+- strace
 # for emacs builds
 - autoconf
 - texinfo
@@ -45,6 +47,10 @@ fedora_package:
 - nodejs
 - npm
 - yarnpkg
+# cern
+- krb5-workstation
+- thunderbird
+
 
 rpmfusion_package:
   - mpv

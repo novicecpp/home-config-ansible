@@ -9,5 +9,5 @@
   command: ./cmd/find_de.sh
   register: reg
 
-- name: run specific de tasks
-  include_tasks: "{{ reg.stdout }}.yml"
+#- name: run specific de tasks
+#  include_tasks: "{{ reg.stdout }}.yml"
