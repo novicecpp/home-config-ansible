@@ -49,6 +49,8 @@ fedora_package:
 - yarnpkg
 # cern
 - krb5-workstation
+## for install pip keystoneauth1[kerberos]
+- krb5-devel
 - thunderbird
 
 

@@ -16,8 +16,8 @@ pip_package:
 - bandit
 - yamllint
 - PyYAML
-- pyyaml
+#- pyyaml
 - wheel
-# cern
-- python-openstackclient==5.2.0
+## cern
+- 'python-openstackclient==5.2.0'
 - 'keystoneauth1[kerberos]'
