@@ -40,7 +40,9 @@ fedora_package:
 - libXpm-devel
 - libjpeg-turbo-devel
 - ncurses-devel
-- xapps # require by emacs gui (get gtk error)
+- xapps # require by emacs gui (get gtk error) when run in x11
+- thunderbird
+- wireguard-tools
 # computer language
 - ruby
 - golang
@@ -51,8 +53,6 @@ fedora_package:
 - krb5-workstation
 ## for install pip keystoneauth1[kerberos]
 - krb5-devel
-- thunderbird
-
 
 rpmfusion_package:
   - mpv

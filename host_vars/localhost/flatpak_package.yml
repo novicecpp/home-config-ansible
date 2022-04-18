@@ -5,3 +5,4 @@ flatpak_package:
 - us.zoom.Zoom
 - com.bitwarden.desktop
 - com.mattermost.Desktop
+- com.nextcloud.desktopclient.nextcloud
