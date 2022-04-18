@@ -18,3 +18,4 @@
   - install_desktop
   - scrcpy
   #- nvidia_driver
+  - sops
