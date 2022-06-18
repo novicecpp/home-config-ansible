@@ -13,3 +13,4 @@
       failed_when:
         - "cmd.rc != 0"
         - "cmd.rc != 2 or 'exists and --force' not in cmd.stderr"
+      changed_when: "cmd.rc == 0"
