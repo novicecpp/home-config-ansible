@@ -3,7 +3,8 @@
 set -euo pipefail
 
 if [[ $EUID -ne 0 ]]; then
-   >2 echo "This script must be run as root"
+   >&2 echo "This script must be run as root using sudo. Rerun it with:"
+   >&2 echo "sudo bash init.sh"
    exit 1
 fi
 USERNAME=$(who | head -n1 | awk '{print $1}')

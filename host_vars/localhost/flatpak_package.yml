@@ -2,7 +2,6 @@ flatpak_package:
 - com.discordapp.Discord
 - com.spotify.Client
 - com.slack.Slack
-- us.zoom.Zoom
 - com.bitwarden.desktop
 - com.mattermost.Desktop
 - com.nextcloud.desktopclient.nextcloud
