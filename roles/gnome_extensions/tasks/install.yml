@@ -9,3 +9,7 @@
     - name: install appindicator
       ansible.builtin.shell: |
         gnome-extensions install ~/Downloads/appindicator.zip
+      register: cmd
+      failed_when:
+        - "cmd.rc != 0"
+        - "cmd.rc != 2 or 'exists and --force' not in cmd.stderr"
