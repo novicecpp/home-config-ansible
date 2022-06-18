@@ -3,6 +3,8 @@
   shell: |
     lspci | grep -i nvidia
   register: grep_nvidia_pci
+  ignore_errors: yes
+
 
 - name: install nvidia driver (if exists)
   include_role:
