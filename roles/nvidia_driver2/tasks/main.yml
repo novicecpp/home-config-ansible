@@ -1,0 +1,8 @@
+---
+- name: grep nvidia pci
+  shell: lspci | grep -i nvidia
+  register: grep_nvidia_pci
+
+- name: install nvidia driver (if exists)
+  include_role: nvidia_driver
+  when: grep_nvidia_pci.rc == 0
