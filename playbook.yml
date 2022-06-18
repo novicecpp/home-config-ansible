@@ -17,5 +17,6 @@
   - tpm
   - install_desktop
   - scrcpy
-  - nvidia_driver2
+  - install_nvidia_driver
   - sops
+  - gnome_extensions

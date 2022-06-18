@@ -1,11 +1,10 @@
 ---
-
-- name: grep nvidia pci
+- name: check if we have gnome-extensions
   shell: |
-    lspci | grep -i nvidia
+    gnome-extensions --version
   register: cmd
   ignore_errors: yes
 
-- name: install nvidia driver (if exists)
+- name: install extensions
   include_tasks: install.yml
   when: cmd.rc == 0

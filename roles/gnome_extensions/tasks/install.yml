@@ -1,0 +1,11 @@
+---
+- name: appindicator
+  block:
+    - name: Download appindicator
+      ansible.builtin.get_url:
+        url: https://extensions.gnome.org/extension-data/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip
+        dest: ~/Downloads/appindicator.zip
+        checksum: 385ccdbabc67dfe586fb78ae433df0a8ca84b9cbe67354d5b3efb981d765a9ff
+    - name: install appindicator
+      ansible.builtin.shell: |
+        gnome-extensions install ~/Downloads/appindicator.zip
