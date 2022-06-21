@@ -1,0 +1,16 @@
+---
+# https://www.reddit.com/r/Puppet/comments/opcgwb/comment/h6jvdl0/?utm_source=reddit&utm_medium=web2x&context=3
+- name: install puppet-lint
+  community.general.gem:
+    name: "{{ item }}"
+    user_install: yes
+  loop:
+    - puppet-lint
+    - puppet-lint-strict_indent-check
+    - puppet-lint-manifest_whitespace-check
+    - puppet-lint-unquoted_string-check
+    - puppet-lint-leading_zero-check
+    - puppet-lint-absolute_classname-check
+    - puppet-lint-trailing_comma-check
+    - puppet-lint-file_ensure-check
+    - puppet-lint-legacy_facts-check
