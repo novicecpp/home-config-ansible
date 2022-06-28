@@ -1,7 +1,7 @@
 - name: install kubectl
   tags: kubectl
   get_url:
-    url: https://dl.k8s.io/release/v1.19.12/bin/linux/amd64/kubectl
+    url: https://dl.k8s.io/release/v1.22.11/bin/linux/amd64/kubectl
     dest: ~/.local/bin
     mode: '0755'
 
