@@ -5,3 +5,4 @@ flatpak_package:
 - com.bitwarden.desktop
 - com.mattermost.Desktop
 - com.nextcloud.desktopclient.nextcloud
+- io.dbeaver.DBeaverCommunity
