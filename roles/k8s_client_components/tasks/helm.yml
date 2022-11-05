@@ -5,8 +5,9 @@
   vars:
     download_url: https://get.helm.sh/helm-v3.5.2-linux-amd64.tar.gz
     checksum: sha256:01b317c506f8b6ad60b11b1dc3f093276bb703281cb1ae01132752253ec706a2
-    from_path: linux-amd64/helm
-    to_path: ~/.local/bin/
+    path:
+      - src: linux-amd64/helm
+        dest: ~/.local/bin/
 
 - name: export helm bash completion
   command: bash -c 'helm completion bash > ~/.bash_completion.d/helm.bash'

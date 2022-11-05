@@ -1,0 +1,5 @@
+---
+- name: import role
+  ansible.builtin.include_role:
+    name: '{{ item }}'
+  loop: '{{ role_install }}'

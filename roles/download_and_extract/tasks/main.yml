@@ -26,5 +26,6 @@
     src: "~/Downloads/{{ _filename }}"
     dest: "{{ extract_dir.path }}"
 
-- name: "copy with rsync from {{ form_path }} to {{ to_path }}"
-  shell: 'rsync -av {{ extract_dir.path }}/{{ from_path }} {{ to_path }}'
+- name: "copy with rsync from {{ item.src }} to {{ item.dest }}"
+  shell: 'rsync -av {{ extract_dir.path }}/{{ item.src }} {{ item.dest }}'
+  loop: "{{ path }}"

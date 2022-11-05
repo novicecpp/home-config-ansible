@@ -5,7 +5,7 @@
     key: https://zoom.us/linux/download/pubkey
   become: yes
 
-- name: Install the nginx rpm from a remote repo
+- name: install zoom from rpm files (latest)
   dnf:
     name: 'https://zoom.us/client/latest/zoom_x86_64.rpm'
     state: present

@@ -35,5 +35,6 @@
   vars:
     download_url: https://github.com/docker/docker-credential-helpers/releases/download/v0.6.4/docker-credential-secretservice-v0.6.4-amd64.tar.gz
     checksum: sha256:dbf613a4ca63dbaca08298fe954ef1c616238956bd5b6e4f237a6c8f86ea5748
-    from_path: docker-credential-secretservice
-    to_path: ~/.local/bin
+    path:
+      - src: docker-credential-secretservice
+        dest: ~/.local/bin

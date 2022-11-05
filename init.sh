@@ -13,4 +13,4 @@ echo $USERNAME
 dnf install -y emacs-nox python-pip
 cat > /etc/sudoers.d/${USERNAME} \
     <<<"""${USERNAME}        ALL=(ALL)       NOPASSWD: ALL"""
-sudo -H -u ${USERNAME} python3 -m pip install --user "ansible<3"
+sudo -H -u ${USERNAME} python3 -m pip install --user "ansible<7"

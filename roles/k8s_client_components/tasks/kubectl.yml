@@ -19,5 +19,6 @@
   vars:
     download_url: https://github.com/int128/kubelogin/releases/download/v1.22.1/kubelogin_linux_amd64.zip
     checksum: sha256:dfbc8a6535178f58c2d96bd8d1061d4688de8c83eb1cae9d0db687224ebc6726
-    from_path: kubelogin
-    to_path: ~/.local/bin/kubectl-oidc_login
+    path:
+      - src: kubelogin
+        dest: ~/.local/bin/kubectl-oidc_login
