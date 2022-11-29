@@ -18,7 +18,10 @@ pip_package:
 - PyYAML
 #- pyyaml
 - wheel
-## cern
+# cern
+# version is from pip freeze in lxplus8
 - 'python-openstackclient==5.2.0'
 - 'python-magnumclient==3.0.1'
+- 'python-magnumclient==3.0.1'
+- 'python-barbicanclient==4.10.0'
 - 'keystoneauth1[kerberos]'

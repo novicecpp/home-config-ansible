@@ -28,6 +28,8 @@ fedora_package:
 - wireshark
 - texlive-pdfjam
 - strace
+- thunderbird
+- wireguard-tools
 # for emacs builds
 - autoconf
 - texinfo
@@ -40,9 +42,9 @@ fedora_package:
 - libXpm-devel
 - libjpeg-turbo-devel
 - ncurses-devel
+- jemalloc-devel
+- libtree-sitter-devel
 - xapps # require by emacs gui (get gtk error) when run in x11
-- thunderbird
-- wireguard-tools
 # computer language
 - ruby
 - golang
