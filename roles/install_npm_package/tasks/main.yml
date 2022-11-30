@@ -1,0 +1,9 @@
+---
+- name: set global path to local user
+  ansible.builtin.command: npm config set prefix '~/.local/'
+
+- name: install npm package
+  community.general.npm:
+    name: "{{ item }}"
+    global: true
+  loop: "{{ npm_packages }}"
