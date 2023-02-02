@@ -1,9 +1,13 @@
 - name: install kubectl
   tags: kubectl
-  get_url:
-    url: https://dl.k8s.io/release/v1.22.11/bin/linux/amd64/kubectl
-    dest: ~/.local/bin
-    mode: '0755'
+  include_role:
+    name: download_and_extract
+  vars:
+    download_url: https://dl.k8s.io/v1.26.1/kubernetes-client-linux-amd64.tar.gz
+    checksum: sha512:d82f8fb12b3667c9c613092ac8c5c38c2f0db2db719f8d8b308f1146ef4ac2942b66554fc99ddc1e947492f4cec845a21feebbf804289173c42928a2d355490f
+    path:
+      - src: kubernetes/client/bin/
+        dest: ~/.local/bin
 
 - name: ensure user bash_completion.d dir
   file:
