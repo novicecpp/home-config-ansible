@@ -18,4 +18,4 @@ make -j $(( $(nproc) - 1))
 systemctl stop --user emacs
 sudo make uninstall
 sudo make install install-etc #install-etc for emacs icon
-systemctl start --user emacs
+systemctl start --user emacs --no-block
