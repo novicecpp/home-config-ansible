@@ -2,9 +2,10 @@
 - name: install python header
   tags: pip
   include_tasks: '{{ ansible_distribution }}.yml'
+
 - name: install pip package
   tags: pip
   pip:
-    name: "{{ pip_package }}"
+    name: "{{ pip_package_default + pip_package }}"
     state: latest
     extra_args: --user
