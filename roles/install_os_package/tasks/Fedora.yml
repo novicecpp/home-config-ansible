@@ -10,7 +10,7 @@
 
 - name: install fedora package
   dnf:
-    name: "{{ fedora_package }}"
+    name: "{{ fedora_package_default + fedora_package }}"
     state: present
   become: yes
   register: res
@@ -18,7 +18,7 @@
 
 - name: install rpmfusion package
   dnf:
-    name: "{{ rpmfusion_package }}"
+    name: "{{ rpmfusion_package_default + rpmfusion_package }}"
     state: present
   become: yes
   register: res
