@@ -3,11 +3,19 @@
   include_role:
     name: download_and_extract
   vars:
-    download_url: https://github.com/pyenv/pyenv/archive/refs/tags/v2.3.1.tar.gz
-    checksum: sha256:adf687597fc103180e6262667f8f3edaaacde298ee689de9bbdeed0f0b8e3efc
+    download_url: https://github.com/pyenv/pyenv/archive/refs/tags/v2.3.16.tar.gz
+    checksum: sha256:699d6d87df08428bcd51ce2523a1dba18827a30bef4aea6fdd138935f2a875df
     path:
-      - src: 'pyenv-2.3.1/'
+      - src: 'pyenv-2.3.16/'
         dest: '~/.local/share/pyenv'
+
+- name: symlink pyenv to ~/.local/bin
+  ansible.builtin.file:
+    src: '~/.local/share/pyenv/bin/pyenv'
+    dest: '~/.local/bin/pyenv'
+    owner: "{{ ansible_user_gid }}"
+    group: "{{ ansible_user_gid }}"
+    state: link
 
 #- name: download pyenv-virtualenv
 #  include_role:
