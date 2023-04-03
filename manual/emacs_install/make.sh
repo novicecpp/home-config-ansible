@@ -1,8 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
-if [[ ! -d "emacs" ]]; then
-   git clone git://git.sv.gnu.org/emacs.git emacs
+if [[ ! -d "emacs/.git" ]]; then
+    >&2 echo 'Error: "emacs" local repository not found. Clone the emacs with "clone.sh" first.'
+    exit 1
 fi
 
 cd emacs
