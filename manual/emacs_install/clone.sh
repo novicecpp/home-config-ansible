@@ -24,7 +24,6 @@ if [[ $1 == 'master' || $1 == '-m' ]]; then
     git fetch origin
     EMACS_HEAD=$(git rev-parse origin/master)
     git checkout $EMACS_HEAD
-    popd > /dev/null
     echo $EMACS_HEAD > ../$EMACS_HEAD_FILE
 fi
 popd
