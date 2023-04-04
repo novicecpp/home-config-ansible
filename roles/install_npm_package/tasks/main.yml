@@ -2,8 +2,10 @@
 - name: set global path to local user
   ansible.builtin.command: npm config set prefix '~/.local/'
 
+# TODO: need to implement package-lock.json later to resilient
+# supply-chain attack
 - name: install npm package
   community.general.npm:
     name: "{{ item }}"
     global: true
-  loop: "{{ npm_packages }}"
+  loop: "{{ npm_packages_default + npm_packages }}"

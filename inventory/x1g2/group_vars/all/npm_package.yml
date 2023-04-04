@@ -1,4 +1,2 @@
 ---
-npm_packages:
-  - pyright
-  - yaml-language-server
+npm_packages: []

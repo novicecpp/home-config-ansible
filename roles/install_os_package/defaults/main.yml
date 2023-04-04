@@ -50,6 +50,8 @@ fedora_package_default:
 - nodejs
 - npm
 - yarnpkg
+# language server
+- ShellCheck
 
 rpmfusion_package_default:
   - mpv
