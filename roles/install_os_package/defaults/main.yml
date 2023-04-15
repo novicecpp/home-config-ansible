@@ -52,6 +52,7 @@ fedora_package_default:
 - yarnpkg
 # language server
 - ShellCheck
+- mediainfo
 
 rpmfusion_package_default:
   - mpv
