@@ -1,7 +1,5 @@
 #! /bin/bash
 
-set -x
-
 if [[ $# != 2 ]]; then
    echo "Usage: "
    echo "bash backup.sh <src> <dst>"
@@ -10,8 +8,10 @@ fi
 
 SRCDIR=$1
 DSTDIR=$2
-printf -v BACKUP_NAME '%(%Y-%m-%d)T_cmsoc_myhome.tar.zstd' -1
-BACKUP_PATH=$DSTDIR/$BACKUP_NAME
+MACHINE_NAME=${MACHINE_NAME:-x1g2}
+DIR_NAME=${DIR_NAME:-myhome}
+printf -v BACKUP_PATH '%s/%(%Y-%m-%d)T_%s_%s.tar.zstd' "$DSTDIR" -1 "$MACHINE_NAME" "$DIR_NAME"
 
-tar cf - "${SRCDIR}" | pv -brt | zstd -T0 - -o "${BACKUP_PATH}"
+
+tar --ignore-failed-read -cf - "${SRCDIR}" | pv -brt | zstd -T0 - -o "${BACKUP_PATH}"
 sha256sum "${BACKUP_PATH}" > "${BACKUP_PATH}.sha256"
