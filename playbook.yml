@@ -2,6 +2,7 @@
   connection: local
   become: no
   roles:
+  - home-config-info
   - install_os_package
   - config
   - flatpak

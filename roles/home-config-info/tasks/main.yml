@@ -1,0 +1,9 @@
+---
+- name: copy var info to /etc/home-config-info
+  ansible.builtin.template:
+    src: etc/home-config-info.j2
+    dest: /etc/home-config-info
+    owner: root
+    group: root
+    mode: '0644'
+  become: yes
