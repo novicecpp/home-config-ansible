@@ -30,6 +30,7 @@ fedora_package_default:
 - thunderbird
 - wireguard-tools
 - xpra
+- mediainfo
 # for emacs builds
 - autoconf
 - texinfo
@@ -43,6 +44,7 @@ fedora_package_default:
 - libjpeg-turbo-devel
 - ncurses-devel
 - libtree-sitter-devel
+- g++
 - xapps # require by emacs gui (get gtk error) when run in x11
 # programming language
 - ruby
@@ -52,7 +54,6 @@ fedora_package_default:
 - yarnpkg
 # language server
 - ShellCheck
-- mediainfo
 
 rpmfusion_package_default:
   - mpv
