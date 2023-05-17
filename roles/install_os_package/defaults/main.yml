@@ -44,8 +44,13 @@ fedora_package_default:
 - libjpeg-turbo-devel
 - ncurses-devel
 - libtree-sitter-devel
-- g++
 - xapps # require by emacs gui (get gtk error) when run in x11
+# compile python via pyenv
+- readline-devel
+- openssl-devel
+# other dev tools
+- g++
+- libcurl-devel # pycurl
 # programming language
 - ruby
 - golang
