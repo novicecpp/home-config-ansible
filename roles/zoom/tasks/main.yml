@@ -2,11 +2,12 @@
 - name: Import zoom rpm gpg key
   ansible.builtin.rpm_key:
     state: present
-    key: https://zoom.us/linux/download/pubkey
+    key: https://zoom.us/linux/download/pubkey?version=5-12-6
+    fingerprint: 59C86188E22ABB19BD5540477B04A1B8DD79B481
   become: yes
 
 - name: install zoom from rpm files (latest)
   dnf:
-    name: 'https://zoom.us/client/latest/zoom_x86_64.rpm'
+    name: 'https://zoom.us/client/5.14.7.2928/zoom_x86_64.rpm'
     state: present
   become: yes

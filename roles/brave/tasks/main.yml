@@ -1,0 +1,17 @@
+---
+- name: add brave repo
+  command: dnf config-manager --add-repo https://brave-browser-rpm-beta.s3.brave.com/brave-browser-beta.repo
+  become: yes
+
+- name: import key
+  rpm_key:
+    state: present
+    key: "https://brave-browser-rpm-beta.s3.brave.com/brave-core-nightly.asc"
+    fingerprint: "9228DBCE20DDE5EC46488DE90B31DBA06A8A26F9"
+  become: yes
+
+- name: install brave
+  dnf:
+    name: 'brave-browser-beta'
+    state: latest
+  become: yes
