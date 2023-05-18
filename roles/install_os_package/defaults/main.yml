@@ -31,6 +31,7 @@ fedora_package_default:
 - wireguard-tools
 - xpra
 - mediainfo
+- fd-find
 # for emacs builds
 - autoconf
 - texinfo
