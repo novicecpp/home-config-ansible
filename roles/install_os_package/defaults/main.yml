@@ -32,6 +32,7 @@ fedora_package_default:
 - xpra
 - mediainfo
 - fd-find
+- pass
 # for emacs builds
 - autoconf
 - texinfo
