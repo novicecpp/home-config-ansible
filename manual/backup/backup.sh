@@ -14,7 +14,7 @@ printf -v BACKUP_PATH '%s/%(%Y-%m-%d)T_%s_%s.tar.zstd' "$DSTDIR" -1 "$MACHINE_NA
 
 echo "Backup from $SRCDIR to $BACKUP_PATH"
 
-tar --ignore-failed-read -cf - "${SRCDIR}" | pv -brt | zstd -T0 -o "${BACKUP_PATH}" -
+tar --ignore-failed-read -cf - "${SRCDIR}" | pv -brt | zstd -T0 - > "${BACKUP_PATH}"
 
 echo "Running checksum..."
 sha256sum "${BACKUP_PATH}" > "${BACKUP_PATH}.sha256"
