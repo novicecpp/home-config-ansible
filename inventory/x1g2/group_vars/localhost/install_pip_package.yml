@@ -18,7 +18,6 @@ pip_package:
 - PyYAML
 #- pyyaml
 - wheel
-# cern
 # version is from pip freeze in lxplus8
 - 'python-openstackclient==5.2.0'
 - 'python-magnumclient==3.0.1'
