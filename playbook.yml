@@ -8,6 +8,7 @@
   - flatpak
   - install_fonts
   - install_pip_package
+  - install_npm_package
   - k8s_client_components
   - awscli
   - pyenv

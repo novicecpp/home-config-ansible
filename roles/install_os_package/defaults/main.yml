@@ -5,7 +5,7 @@ fedora_package_default:
 - zstd
 - the_silver_searcher
 - fzf
-- wine
+# - wine # dependency conflict with i686 version
 - ncdu
 - autossh
 - xsel # for tmux copy yank to clipboard
