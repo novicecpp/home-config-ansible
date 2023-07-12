@@ -22,4 +22,4 @@ echo "Backup from $SRCDIR to $BACKUP_PATH"
 tar --ignore-failed-read -cf - "${SRCDIR}" | pv -brt | zstd -T0 - > "${BACKUP_PATH}"
 
 echo "Running checksum..."
-sha256sum "${BACKUP_PATH}" > "${BACKUP_PATH}.sha256"
+sha256sum "${BACKUP_PATH}" | tee "${BACKUP_PATH}.sha256"
