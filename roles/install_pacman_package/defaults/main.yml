@@ -1,0 +1,89 @@
+pacman_packages: []
+pacman_package_defaults:
+- bash-completion
+- bc
+- cloud-image-utils
+- cowsay
+- dnsmasq
+- dnsmasq # libvirt deps
+- fd
+- fzf
+- gimp
+- git
+- go
+- inotify-tools
+- iptables-nft
+- jq
+- yq
+- libvirt
+- man-db
+- nano
+- ncdu
+- openssl
+- pandoc
+- pass
+- pv
+- qemu-base # libvirt backend
+- ripgrep
+- strace
+- sudo
+- texlive-binextra
+- tmux
+- virt-manager # libvirt gui
+- which
+- wine-staging
+- wireguard-tools
+- wl-clipboard
+- xdg-utils
+- jack2
+- mesa
+- xorg-xauth
+- pyright
+- rubygems
+- glances
+- sshuttle
+- python-setuptools
+- yaml-language-server
+- bash-language-server
+# fonts
+- noto-fonts
+- noto-fonts-cjk
+- noto-fonts-extra
+- ttf-dejavu
+- ttf-droid
+- ttf-liberation
+- ttf-nerd-fonts-symbols-mono
+- ttf-roboto
+# for archlinux aur
+- fakeroot
+# gui/require hw accelerator
+- discord
+- firefox
+- mpv
+- thunderbird
+- calibre
+- nextcloud
+# emacs deps
+- libgccjit
+- libxpm
+- texinfo
+- tree-sitter
+- webkit2gtk
+# gnome-extensions
+- gnome-shell-extension-appindicator
+# kube
+- kubectl
+- kubectx
+- helm
+- kustomize
+
+pacman_remove_packages: []
+pacman_remove_package_defaults:
+- iptables
+
+aur_packages: []
+aur_package_defaults:
+- google-chrome
+- brave-bin
+- spotify
+- zoom

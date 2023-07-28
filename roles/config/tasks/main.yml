@@ -1,13 +1,61 @@
 ---
-- name: copy x11 keyboard config
-  copy:
-    src: etc/X11/xorg.conf.d/10-keyboard.conf
-    dest: /etc/X11/xorg.conf.d/10-keyboard.conf
-  become: yes
-
-- name: get XDG_SESSION_DESKTOP
-  command: ./cmd/find_de.sh
-  register: reg
+#- name: copy x11 keyboard config
+#  copy:
+#    src: etc/X11/xorg.conf.d/10-keyboard.conf
+#    dest: /etc/X11/xorg.conf.d/10-keyboard.conf
+#  become: yes
+#
+#- name: get XDG_SESSION_DESKTOP
+#  command: ./cmd/find_de.sh
+#  register: reg
 
 #- name: run specific de tasks
 #  include_tasks: "{{ reg.stdout }}.yml"
+- name: disable services
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    enabled: false
+  loop:
+    - systemd-networkd
+  become: yes
+
+- name: enable services
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    enabled: true
+  loop:
+    - gdm
+    - NetworkManager
+    - systemd-timesyncd
+    - systemd-resolved
+    - bluetooth
+    - libvirtd
+  become: yes
+
+
+- name: replace /etc/resolv.conf to systemd-resolved stub
+  ansible.builtin.file:
+    src: /run/systemd/resolve/stub-resolv.conf
+    dest: /etc/resolv.conf
+    force: true
+    state: link
+  become: yes
+
+- name: copy resolved.conf
+  ansible.builtin.copy:
+    src: etc/systemd/resolved.conf
+    dest: /etc/systemd/resolved.conf
+    owner: root
+    group: root
+    mode: '0644'
+  become: yes
+  notify: restart systemd-resolved
+
+- name: add ~/.local/bin to PATH for all users
+  ansible.builtin.copy:
+    src: etc/profile.d/localpath.sh
+    dest: /etc/profile.d/localpath.sh
+    owner: root
+    group: root
+    mode: '0644'
+  become: yes

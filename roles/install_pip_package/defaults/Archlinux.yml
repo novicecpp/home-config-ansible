@@ -1,0 +1,22 @@
+---
+pip_packages: []
+pip_package_defaults:
+#- boto3
+- ipython
+- pipenv
+- poetry
+#- sshuttle
+- yapf
+#- yq
+#- glances
+#- docker-compose
+#- aws2-wrap
+- black
+- jedi-language-server
+- pylint
+- flake8
+- bandit
+- yamllint
+- PyYAML
+#- pyyaml
+- wheel

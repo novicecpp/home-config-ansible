@@ -1,11 +1,12 @@
 ---
 - name: install python header
-  tags: pip
   include_tasks: '{{ ansible_distribution }}.yml'
 
+- name: load vars depend on distribution
+  include_vars: '../defaults/{{ ansible_distribution }}.yml'
+
 - name: install pip package
-  tags: pip
-  pip:
-    name: "{{ pip_package_default + pip_package }}"
+  ansible.builtin.pip:
+    name: "{{ pip_package_defaults + pip_packages }}"
     state: latest
-    extra_args: --user
+    extra_args: --user --break-system-packages
