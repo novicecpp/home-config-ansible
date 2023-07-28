@@ -1,0 +1,13 @@
+- name: pacman update cache
+  community.general.pacman:
+    update_cache: true
+  become: true
+
+- name: pacman install packages
+  community.general.pacman:
+    name:
+      - intel-gpu-tools
+      - intel-media-driver
+      - vulkan-intel
+    state: present
+  become: true

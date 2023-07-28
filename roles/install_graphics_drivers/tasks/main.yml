@@ -1,0 +1,16 @@
+---
+- name: check intel graphics
+  shell:
+   cmd: lspci | grep 'VGA compatible controller' | grep -i intel
+   executable: /bin/bash
+  become: true
+  register: intel_tmp
+  changed_when: false
+  failed_when: false
+
+- set_fact:
+    is_intel_gpu: "{{ intel_tmp.rc == 0 }}"
+
+- name: install intel drivers
+  include_tasks: '{{ ansible_distribution }}-intel.yml'
+  when: is_intel_gpu
