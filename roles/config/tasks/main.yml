@@ -17,7 +17,7 @@
     enabled: false
   loop:
     - systemd-networkd
-  become: yes
+  become: true
 
 - name: enable services
   ansible.builtin.systemd:
@@ -30,7 +30,7 @@
     - systemd-resolved
     - bluetooth
     - libvirtd
-  become: yes
+  become: true
 
 
 - name: replace /etc/resolv.conf to systemd-resolved stub
@@ -39,7 +39,7 @@
     dest: /etc/resolv.conf
     force: true
     state: link
-  become: yes
+  become: true
 
 - name: copy resolved.conf
   ansible.builtin.copy:
@@ -48,7 +48,7 @@
     owner: root
     group: root
     mode: '0644'
-  become: yes
+  become: true
   notify: restart systemd-resolved
 
 - name: add ~/.local/bin to PATH for all users
@@ -58,4 +58,4 @@
     owner: root
     group: root
     mode: '0644'
-  become: yes
+  become: true
