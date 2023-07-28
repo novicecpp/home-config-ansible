@@ -4,7 +4,6 @@ pacman_package_defaults:
 - bc
 - cloud-image-utils
 - cowsay
-- dnsmasq
 - dnsmasq # libvirt deps
 - fd
 - fzf
@@ -42,9 +41,21 @@ pacman_package_defaults:
 - rubygems
 - glances
 - sshuttle
-- python-setuptools
+- python-setuptools # require for pip install
 - yaml-language-server
 - bash-language-server
+- kubectl
+- kubectx
+- helm
+- kustomize
+- pyenv
+- docker
+- vault
+- sops
+- apptainer
+- inetutils	# `hostname` command
+- dbeaver
+- bitwarden
 # fonts
 - noto-fonts
 - noto-fonts-cjk
@@ -71,11 +82,6 @@ pacman_package_defaults:
 - webkit2gtk
 # gnome-extensions
 - gnome-shell-extension-appindicator
-# kube
-- kubectl
-- kubectx
-- helm
-- kustomize
 
 pacman_remove_packages: []
 pacman_remove_package_defaults:
