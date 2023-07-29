@@ -1,0 +1,5 @@
+- hosts: localhost
+  connection: local
+  become: no # assume it run as root
+  tasks:
+    - include_tasks: tasks.yml
