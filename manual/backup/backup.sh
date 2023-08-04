@@ -18,11 +18,8 @@ fi
 printf -v BACKUP_PATH '%s/%(%Y-%m-%d)T_%s_%s.tar.zstd' "${DSTDIR%/}" -1 "$MACHINE_NAME" "$DIR_NAME"
 
 echo "Backup from $SRCDIR to $BACKUP_PATH"
-echo "Getting directory size: "
-DIRSIZE=$(du -sb "${SRCDIR}" | awk '{print $1}' | xargs)
-echo "$DIRSIZE bytes"
 
-tar --ignore-failed-read -cf - "${SRCDIR}" | pv -brtp -s "${DIRSIZE}" | zstd -T0 - > "${BACKUP_PATH}"
+tar --ignore-failed-read -cf - "${SRCDIR}" | pv -brt | zstd -T0 - > "${BACKUP_PATH}"
 
 echo "Running checksum..."
 sha256sum "${BACKUP_PATH}" | tee "${BACKUP_PATH}.sha256"
