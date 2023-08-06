@@ -69,6 +69,7 @@ pacman_package_defaults:
 - rubygems
 - glances
 - sshuttle
+- python-pip
 - python-setuptools # require for pip install
 - yaml-language-server
 - bash-language-server
