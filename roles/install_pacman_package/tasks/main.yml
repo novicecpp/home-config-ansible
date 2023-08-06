@@ -23,7 +23,12 @@
     reason: explicit
     reason_for: all
     force: true
+  become: true
 
+- name: pacman install pacstrap packages
+  community.general.pacman:
+    name: "{{ pacman_pacstrap_packages }}"
+    state: present
   become: true
 
 - name: pacman install packages

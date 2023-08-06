@@ -1,6 +1,34 @@
+---
+pacman_pacstrap_packages:
+  - base
+  - base-devel
+  - linux
+  - linux-firmware
+  - util-linux
+  - networkmanager
+  - emacs-nox
+  - tree-sitter
+  - nano
+  - grub
+  - efibootmgr
+  - efifs
+  - os-prober
+  - sudo
+  - tmux
+  - bash-completion
+  - gnome-shell
+  - gnome-console
+  - gnome-control-center
+  - gnome-tweaks
+  - gdm
+  - nautilus
+  - firefox
+  - python
+  - python-anisble
+
 pacman_packages: []
 pacman_package_defaults:
-- bash-completion
+# packages
 - bc
 - cloud-image-utils
 - cowsay
@@ -70,7 +98,6 @@ pacman_package_defaults:
 - fakeroot
 # gui/require hw accelerator
 - discord
-- firefox
 - mpv
 - thunderbird
 - calibre
