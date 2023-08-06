@@ -11,6 +11,12 @@
 
 #- name: run specific de tasks
 #  include_tasks: "{{ reg.stdout }}.yml"
+
+- name: lock root password
+  ansible.builtin.user:
+    name: root
+    password_lock: true
+
 - name: disable services
   ansible.builtin.systemd:
     name: "{{ item }}"
@@ -30,6 +36,7 @@
     - systemd-resolved
     - bluetooth
     - libvirtd
+    - docker
   become: true
 
 
@@ -58,4 +65,12 @@
     owner: root
     group: root
     mode: '0644'
+  become: true
+
+- name: Add user to group
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: /bin/bash
+    groups: docker,libvirt
+    append: yes
   become: true

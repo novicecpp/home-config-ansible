@@ -56,6 +56,7 @@ pacman_package_defaults:
 - inetutils	# `hostname` command
 - dbeaver
 - bitwarden
+- sequoia-sq
 # fonts
 - noto-fonts
 - noto-fonts-cjk
@@ -73,7 +74,7 @@ pacman_package_defaults:
 - mpv
 - thunderbird
 - calibre
-- nextcloud
+- nextcloud-client
 # emacs deps
 - libgccjit
 - libxpm
@@ -93,3 +94,4 @@ aur_package_defaults:
 - brave-bin
 - spotify
 - zoom
+- ventoy-bin
