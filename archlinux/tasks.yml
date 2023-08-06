@@ -39,11 +39,6 @@
     group: root
     mode: '0644'
 
-- name: enable networkmanager
-  ansible.builtin.systemd:
-    name: NetworkManager
-    enable: true
-
 # disk encryption
 - name: replace line in /etc/mkinitcpio.conf
   ansible.bulitin.lineinfile:
@@ -94,3 +89,14 @@
     path: /etc/fstab
     regexp: 'rw,relatime,ssd,space_cache=v2,subvol'
     replace: 'rw,noatime,ssd,space_cache=v2,compress-force=zstd:1,discard=async,subvol'
+
+- name: enable base services
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    enable: true
+  loop:
+    - gdm
+    - NetworkManager
+
+- name: boot to GUI
+  ansible.builtin.shell: systemctl set-default graphical.target
