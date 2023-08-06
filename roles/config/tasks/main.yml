@@ -21,6 +21,7 @@
   ansible.builtin.systemd:
     name: "{{ item }}"
     enabled: false
+    state: stopped
   loop:
     - systemd-networkd
   become: true
@@ -29,6 +30,7 @@
   ansible.builtin.systemd:
     name: "{{ item }}"
     enabled: true
+    state: started
   loop:
     - gdm
     - NetworkManager
@@ -38,7 +40,6 @@
     - libvirtd
     - docker
   become: true
-
 
 - name: replace /etc/resolv.conf to systemd-resolved stub
   ansible.builtin.file:
