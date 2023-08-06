@@ -24,7 +24,7 @@ pacman_pacstrap_packages:
   - nautilus
   - firefox
   - python
-  - python-anisble
+  - python-ansible
 
 pacman_packages: []
 pacman_package_defaults:
