@@ -1,15 +1,16 @@
 #! /bin/bash
 EMACS_HEAD_FILE=${EMACS_HEAD_FILE:-./emacs_master}
 
-if [[ ! -d "emacs" ]]; then
-    git clone git://git.sv.gnu.org/emacs.git emacs
-fi
-
 if ! [[ $# == 1 && $1 =~ ^(checkout|-c|master|-m)$ ]]; then
     >&2 echo "Usage: "
     >&2 echo "bash clone.sh checkout|-c # to checkout to commit hash in emacs_master file"
     >&2 echo "bash clone.sh master|-m   # to fetch latest master and replace commit hash in emacs_master file"
     exit 1
+fi
+
+if [[ ! -d "emacs" ]]; then
+    git clone https://github.com/emacs-mirror/emacs emacs
+    #git clone git://git.sv.gnu.org/emacs.git emacs
 fi
 
 pushd emacs
