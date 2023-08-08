@@ -16,11 +16,12 @@ pacman_pacstrap_packages:
   - sudo
   - tmux
   - bash-completion
+  - gdm
   - gnome-shell
   - gnome-console
   - gnome-control-center
   - gnome-tweaks
-  - gdm
+  - eog
   - nautilus
   - firefox
   - python
@@ -28,98 +29,103 @@ pacman_pacstrap_packages:
 
 pacman_packages: []
 pacman_package_defaults:
-# packages
-- bc
-- cloud-image-utils
-- cowsay
-- dnsmasq # libvirt deps
-- fd
-- fzf
-- gimp
-- git
-- go
-- inotify-tools
-- iptables-nft
-- jq
-- yq
-- libvirt
-- man-db
-- nano
-- ncdu
-- openssl
-- pandoc
-- pass
-- pv
-- qemu-base # libvirt backend
-- ripgrep
-- strace
-- sudo
-- texlive-binextra
-- tmux
-- virt-manager # libvirt gui
-- which
-- wine-staging
-- wireguard-tools
-- wl-clipboard
-- xdg-utils
-- jack2
-- mesa
-- xorg-xauth
-- pyright
-- rubygems
-- glances
-- sshuttle
-- python-pip
-- python-setuptools # require for pip install
-- yaml-language-server
-- bash-language-server
-- kubectl
-- kubectx
-- helm
-- kustomize
-- pyenv
-- docker
-- vault
-- sops
-- apptainer
-- inetutils	# `hostname` command
-- dbeaver
-- bitwarden
-- sequoia-sq
-# fonts
-- noto-fonts
-- noto-fonts-cjk
-- noto-fonts-extra
-- ttf-dejavu
-- ttf-droid
-- ttf-liberation
-- ttf-nerd-fonts-symbols-mono
-- ttf-roboto
-# for archlinux aur
-- fakeroot
-# gui/require hw accelerator
-- discord
-- mpv
-- thunderbird
-- calibre
-- nextcloud-client
-# emacs deps
-- libgccjit
-- libxpm
-- texinfo
-- tree-sitter
-- webkit2gtk
-# gnome-extensions
-- gnome-shell-extension-appindicator
+  # packages
+  - bc
+  - cloud-image-utils
+  - cowsay
+  - dnsmasq # libvirt deps
+  - fd
+  - fzf
+  - gimp
+  - git
+  - go
+  - inotify-tools
+  - iptables-nft
+  - jq
+  - yq
+  - libvirt
+  - man-db
+  - nano
+  - ncdu
+  - openssl
+  - pandoc
+  - pass
+  - pv
+  - qemu-base # libvirt backend
+  - ripgrep
+  - strace
+  - sudo
+  - texlive-binextra
+  - tmux
+  - virt-manager # libvirt gui
+  - which
+  - wine-staging
+  - wireguard-tools
+  - wl-clipboard
+  - xdg-utils
+  - jack2
+  - mesa
+  - xorg-xauth
+  - pyright
+  - rubygems
+  - glances
+  - sshuttle
+  - python-pip
+  - python-setuptools # require for pip install
+  - yaml-language-server
+  - bash-language-server
+  - kubectl
+  - kubectx
+  - helm
+  - kustomize
+  - pyenv
+  - docker
+  - vault
+  - sops
+  - apptainer
+  - inetutils # `hostname` command
+  - dbeaver
+  - bitwarden
+  - sequoia-sq
+  - rsync
+  - bind
+  - openssl-1.1
+  - dpkg
+  # fonts
+  - noto-fonts
+  - noto-fonts-cjk
+  - noto-fonts-extra
+  - ttf-dejavu
+  - ttf-droid
+  - ttf-liberation
+  - ttf-nerd-fonts-symbols-mono
+  - ttf-roboto
+  # for archlinux aur
+  - fakeroot
+  # gui/require hw accelerator
+  - discord
+  - mpv
+  - thunderbird
+  - calibre
+  - nextcloud-client
+  # emacs deps
+  - libgccjit
+  - libxpm
+  - texinfo
+  - tree-sitter
+  - webkit2gtk
+  # gnome-extensions
+  - gnome-shell-extension-appindicator
 
+# see note in tasks/main.yml
 pacman_remove_packages: []
 pacman_remove_package_defaults:
-- iptables
+  - iptables
 
 aur_packages: []
 aur_package_defaults:
-- google-chrome
-- brave-bin
-- spotify
-- zoom
-- ventoy-bin
+  - google-chrome
+  - brave-bin
+  - spotify
+  - zoom
+  - ventoy-bin
