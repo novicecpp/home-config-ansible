@@ -8,14 +8,14 @@
     group: root
   become: true
 
-  become: yes
-
 - name: pacman upgrade
   community.general.pacman:
     update_cache: true
     upgrade: true
   become: true
 
+# I do not know how to pass args to confirm pacman to remove
+# iptables with iptables-nft
 - name: pacman remove packages
   community.general.pacman:
     name: "{{ pacman_remove_package_defaults + pacman_remove_packages }}"
