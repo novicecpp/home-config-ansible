@@ -1,5 +1,15 @@
 #!/bin/bash
 set -euo pipefail
+
+# remove system packages
+# if arch/pacman
+which pacman
+retval=$?
+if [[ $retval == 0 ]]; then
+    sudo pacman -R emacs-nox --noconfirm
+    sudo pacman -R emacs --noconfirm
+fi
+
 # copy emacs.service to systemd
 USER_SYSTEMD_PATH=~/.config/systemd/user/
 mkdir -p ${USER_SYSTEMD_PATH}
