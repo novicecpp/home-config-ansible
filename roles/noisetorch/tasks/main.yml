@@ -40,6 +40,12 @@
     owner: '{{ ansible_user_uid }}'
     group: '{{ ansible_user_uid }}'
 
+- name: ensure local user icon dirs
+  ansible.builtin.file:
+    path: ~/.local/share/icons/hicolor/256x256/apps
+    state: directory
+    mode: '0755'
+
 - name: copy icon
   ansible.builtin.copy:
     src: '{{ tmpdir.path }}/assets/icon/noisetorch.png'
