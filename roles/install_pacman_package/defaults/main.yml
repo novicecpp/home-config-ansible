@@ -16,16 +16,15 @@ pacman_pacstrap_packages:
   - sudo
   - tmux
   - bash-completion
+  - python
+  - python-ansible
   - gdm
   - gnome-shell
   - gnome-console
   - gnome-control-center
   - gnome-tweaks
-  - eog
   - nautilus
   - firefox
-  - python
-  - python-ansible
 
 pacman_packages: []
 pacman_package_defaults:
@@ -64,6 +63,8 @@ pacman_package_defaults:
   - wl-clipboard
   - xdg-utils
   - jack2
+  - pipewire
+  - pipewire-pulse
   - mesa
   - xorg-xauth
   - pyright
@@ -91,6 +92,7 @@ pacman_package_defaults:
   - bind
   - openssl-1.1
   - dpkg
+  - eog
   # fonts
   - noto-fonts
   - noto-fonts-cjk
