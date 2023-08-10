@@ -65,6 +65,7 @@ pacman_package_defaults:
   - jack2
   - pipewire
   - pipewire-pulse
+  - wireplumber # or pipewire-media-session
   - mesa
   - xorg-xauth
   - pyright
