@@ -4,6 +4,7 @@ pacman_pacstrap_packages:
   - base-devel
   - linux
   - linux-firmware
+  - sof-firmware
   - util-linux
   - networkmanager
   - emacs-nox
@@ -94,6 +95,8 @@ pacman_package_defaults:
   - openssl-1.1
   - dpkg
   - eog
+  - imagemagick
+  - cups
   # fonts
   - noto-fonts
   - noto-fonts-cjk
