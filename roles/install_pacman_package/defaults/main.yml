@@ -24,12 +24,14 @@ pacman_pacstrap_packages:
   - gnome-console
   - gnome-control-center
   - gnome-tweaks
+  - gnome-keyring
   - nautilus
   - firefox
 
 pacman_packages: []
 pacman_package_defaults:
   # packages
+  - pacman-contrib # pactree
   - bc
   - cloud-image-utils
   - cowsay
@@ -63,10 +65,6 @@ pacman_package_defaults:
   - wireguard-tools
   - wl-clipboard
   - xdg-utils
-  - jack2
-  - pipewire
-  - pipewire-pulse
-  - wireplumber # or pipewire-media-session
   - mesa
   - xorg-xauth
   - pyright
@@ -97,6 +95,11 @@ pacman_package_defaults:
   - eog
   - imagemagick
   - cups
+  # sound
+  - pipewire
+  - pipewire-pulse
+  - wireplumber # or pipewire-media-session
+  - jack2 # ffmpeg dependencies (dependencies of thunderbird/firefox/mpv)
   # require by screen sharing apps (zoom/web browser)
   - gst-plugin-pipewire
   - pipewire-v4l2
