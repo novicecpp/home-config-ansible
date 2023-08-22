@@ -97,6 +97,13 @@ pacman_package_defaults:
   - eog
   - imagemagick
   - cups
+  # require by screen sharing apps (zoom/web browser)
+  - gst-plugin-pipewire
+  - pipewire-v4l2
+  - xdg-desktop-portal-gnome
+  - xdg-desktop-portal-gtk
+  - xdg-desktop-portal
+  - xdg-desktop-portal-wlr
   # fonts
   - noto-fonts
   - noto-fonts-cjk
@@ -108,7 +115,7 @@ pacman_package_defaults:
   - ttf-roboto
   # for archlinux aur
   - fakeroot
-  # gui/require hw accelerator
+  # gui hw accelerator
   - discord
   - mpv
   - thunderbird
