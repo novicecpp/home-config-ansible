@@ -59,13 +59,13 @@
   become: true
   notify: restart systemd-resolved
 
-- name: add ~/.local/bin to PATH for all users
+- name: copy custom /etc/profile.d
   ansible.builtin.copy:
-    src: etc/profile.d/localpath.sh
-    dest: /etc/profile.d/localpath.sh
+    src: etc/profile.d/
+    dest: /etc/profile.d/
     owner: root
     group: root
-    mode: '0644'
+    mode: '0755'
   become: true
 
 - name: Add user to group
