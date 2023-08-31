@@ -95,6 +95,8 @@ pacman_package_defaults:
   - eog
   - imagemagick
   - cups
+  - graphvis
+  - plantuml
   # sound
   - pipewire
   - pipewire-pulse
