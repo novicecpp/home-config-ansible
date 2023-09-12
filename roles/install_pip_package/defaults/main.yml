@@ -1,4 +1,5 @@
 ---
+pip_packages: []
 pip_package_default:
 - boto3
 - ipython

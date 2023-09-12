@@ -21,12 +21,14 @@
     group: root
     mode: '0755'
   become: yes
+
 - name: copy docker daemon config
   copy:
     src: etc/docker/daemon.json
     dest: /etc/docker/daemon.json
     mode: '0644'
   become: yes
+
 - name: download docker credential helper
   include_role:
     name: download_and_extract
