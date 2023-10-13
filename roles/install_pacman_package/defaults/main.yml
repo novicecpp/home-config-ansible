@@ -81,6 +81,7 @@ pacman_package_defaults:
   - kustomize
   - pyenv
   - docker
+  - docker-buildx
   - vault
   - sops
   - apptainer
@@ -97,6 +98,8 @@ pacman_package_defaults:
   - cups
   - graphvis
   - plantuml
+  - rpm-tools
+  - powertop
   # sound
   - pipewire
   - pipewire-pulse
