@@ -54,7 +54,7 @@ pacman_package_defaults:
   - pandoc
   - pass
   - pv
-  - qemu-base # libvirt backend
+  - qemu-full # libvirt backend
   - ripgrep
   - strace
   - sudo
