@@ -7,9 +7,9 @@ pacman_pacstrap_packages:
   - sof-firmware
   - util-linux
   - networkmanager
-  - emacs-nox
   - tree-sitter
   - nano
+  #- emacs-nox
   - grub
   - efibootmgr
   - efifs
@@ -31,6 +31,7 @@ pacman_pacstrap_packages:
 pacman_packages: []
 pacman_package_defaults:
   # packages
+  - dmidecode
   - pacman-contrib # pactree
   - bc
   - cloud-image-utils
@@ -96,10 +97,16 @@ pacman_package_defaults:
   - eog
   - imagemagick
   - cups
-  - graphvis
+  - graphviz
   - plantuml
+  - cmake
+  - make
+  - terraform
   - rpm-tools
   - powertop
+  # java
+  - jdk17-openjdk
+  - maven
   # sound
   - pipewire
   - pipewire-pulse
