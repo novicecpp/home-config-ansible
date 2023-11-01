@@ -59,6 +59,7 @@
   become: true
   notify: restart systemd-resolved
 
+# which2.sh
 - name: copy custom /etc/profile.d
   ansible.builtin.copy:
     src: etc/profile.d/
@@ -75,3 +76,13 @@
     groups: docker,libvirt
     append: yes
   become: true
+
+# askpass.sh
+- name: copy scripts to ~/.local/bin
+  ansible.builtin.copy:
+    src: home/dot-local/bin/
+    dest: ~/.local/bin
+    owner: '{{ ansible_user_uid }}'
+    group: '{{ ansible_user_gid }}'
+    mode: '0755'
+  become: false
