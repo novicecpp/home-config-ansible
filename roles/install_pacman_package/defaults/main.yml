@@ -76,10 +76,11 @@ pacman_package_defaults:
   - python-setuptools # require for pip install
   - yaml-language-server
   - bash-language-server
-  - kubectl
-  - kubectx
-  - helm
-  - kustomize
+  # install with k8s_client_components instead
+  #- kubectl
+  #- kubectx
+  #- helm
+  #- kustomize
   - pyenv
   - docker
   - docker-buildx
