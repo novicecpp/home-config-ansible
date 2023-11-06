@@ -4,7 +4,7 @@
   git:
     repo: https://github.com/ahmetb/kubectx
     dest: ~/.local/share/kubectx
-    version: tags/v0.8.0
+    version: tags/v0.9.5
 
 - name: symlink kubectx kubens
   tags: kubectx
