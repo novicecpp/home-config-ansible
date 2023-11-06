@@ -3,8 +3,8 @@
   include_role:
     name: download_and_extract
   vars:
-    download_url: https://get.helm.sh/helm-v3.12.1-linux-amd64.tar.gz
-    checksum: sha256:1a7074f58ef7190f74ce6db5db0b70e355a655e2013c4d5db2317e63fa9e3dea
+    download_url: https://get.helm.sh/helm-v3.13.1-linux-amd64.tar.gz
+    checksum: sha256:98c363564d00afd0cc3088e8f830f2a0eeb5f28755b3d8c48df89866374a1ed0
     path:
       - src: linux-amd64/helm
         dest: ~/.local/bin/
