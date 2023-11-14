@@ -1,4 +1,0 @@
-hashicorp_client_package:
-- vault
-- terraform
-- packer

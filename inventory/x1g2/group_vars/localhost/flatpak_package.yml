@@ -1,8 +1,0 @@
-flatpak_package:
-- com.discordapp.Discord
-- com.spotify.Client
-- com.slack.Slack
-- com.bitwarden.desktop
-- com.mattermost.Desktop
-- com.nextcloud.desktopclient.nextcloud
-- io.dbeaver.DBeaverCommunity
