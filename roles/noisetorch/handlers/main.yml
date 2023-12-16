@@ -1,3 +1,0 @@
----
-- name: reload icon cache
-  shell: gtk-update-icon-cache
