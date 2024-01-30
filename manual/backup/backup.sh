@@ -9,7 +9,7 @@ fi
 SRCDIR=$1
 DSTDIR=$2
 MACHINE_NAME=${MACHINE_NAME:-x1g2}
-DIR_NAME=${DIR_NAME:-myhome}
+DIR_NAME=${DIR_NAME:-$(basename "$1")}
 if [[ ! -d "${DSTDIR}" ]]; then
     >&2 echo "Error: backup path \"${DSTDIR}\" is not directory."
     exit 1
