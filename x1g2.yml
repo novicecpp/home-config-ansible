@@ -1,10 +1,1 @@
----
-- hosts: localhost
-  connection: local
-  become: no
-  roles:
-    - install_pacman_package
-    - config
-    - install_pip_package
-    - install_graphics_drivers
-    - puppet_lint
+private/playbook/x1g2.yml
