@@ -39,7 +39,8 @@ git submodule update --init
 #+end_src
 *** Run ansible
 #+begin_src bash
-bash example_run.sh  # Switch playbook and inventory to the machine you run
+cd ~/myhome/home-config-ansible
+bash example_run.sh  # Switch playbook and inventory to the machine you run in the script.
 #+end_src
 *** If dnf has updated linux-firmware (fedora), restart cold boot.
 For lenovo X1/P1,
