@@ -18,8 +18,18 @@ For Archlinux, it is already setup in installation step [[file:archlinux/bootstr
 #+begin_src bash
 mkdir ~/myhome
 #+end_src
-Note: I do not do backup whole home directory, but put everything into =~/myhome= directory instead to clean up the mess created by applications when reinstall OS
+Note: I do not do backup whole home directory, but put everything into =~/myhome= directory instead to clean up the mess created by applications when reinstall OS.
+
 Dot files will be setup later by ansible roles in [[https://github.com/novicecpp/home-config-ansible-private][home-config-ansible-private]].
+*** Setup this repo and initialize [[https://github.com/novicecpp/home-config-ansible-private][home-config-ansible-private]] and [[https://github.com/novicecpp/mygalaxy][mygalaxy]].
+#+begin_src bash
+cd ~/myhome
+git clone git@github.com:novicecpp/home-config-ansible.git
+cd home-config-ansible
+git submodule update --init
+# install galaxy deps and symlink mygalaxy to ~/.ansible
+bash mygalaxy/install.sh
+#+end_src
 *** Clone [[https://github.com/novicecpp/home-config][home-config]] and [[https://github.com/novicecpp/home-config-private][home-config-private]] to =~/myhome=. Need ssh-agent to clone private repo.
 #+begin_src bash
 CREDENTIALS_PATH=/path/to/credentials-store
@@ -30,22 +40,16 @@ git clone git@github.com:novicecpp/home-config.git
 cd home-config
 git submodule update --init
 #+end_src
-*** Clone and Running home-config-ansible
-#+begin_src bash
-cd ~/myhome
-git clone git@github.com:novicecpp/home-config-ansible.git
-cd home-config-ansible
-git submodule update --init
-#+end_src
-*** Run ansible setup
+*** Run home-config-ansible
 #+begin_src bash
 cd ~/myhome/home-config-ansible
 bash example_run.sh  # Switch playbook and inventory to the machine you run in the script.
 #+end_src
 *** Run home-config setup
 TBD
-*** If dnf has updated linux-firmware (fedora), restart cold boot.
-For lenovo X1/P1,
+** Note
+*** OS packages has =linux-firmware= update, restart cold boot.
+For Lenovo X1/P1,
 - Remove power cord.
 - Restart.
 - Open bios menu > Power > Turn of built-in battery.
