@@ -1,4 +1,0 @@
-- hosts: fedora
-  become: yes
-  roles:
-  - fedora_workstation_cloudimage

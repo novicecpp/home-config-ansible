@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Wine Explorer (LINE)
-Comment=Wine Explorer (LINE)
-#Icon=emacs
-Type=Application
-Exec=wine explorer /desktop=Line,1280x720

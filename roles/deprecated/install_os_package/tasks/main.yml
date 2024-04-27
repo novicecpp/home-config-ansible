@@ -1,2 +1,0 @@
-- name: upgrade and install os package
-  include_tasks: "{{ ansible_distribution }}.yml"

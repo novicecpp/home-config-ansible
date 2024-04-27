@@ -1,2 +1,50 @@
+#+Startup: showall
 * home-config-ansible
-see [[file:INSTALL.org::][INSTALL.org]]
+Workstation setup scripts. All roles (except the private one) are now migrated to =novicecpp.homeconfig= [[https://github.com/novicecpp/mygalaxy][My (Ansible) Galaxy]].
+** Prerequisite
+*** Packages
+- git
+- sudo
+- ssh and ssh-agent
+- ansible
+- local user with root access
+*** Credential
+Do not forget setup credentials storage before run setup.
+*** Initial script
+For Fedora, you can use [[file:init/fedora.sh::! /bin/bash][init/fedora.sh]] script to bootstrap.
+For Archlinux, it is already setup in installation step [[file:archlinux/bootstrap.yml::- hosts: localhost][archlinux/bootstrap.yml]].
+** Setup
+*** Create myhome directory
+#+begin_src bash
+mkdir ~/myhome
+#+end_src
+Note: We do not do backup whole home directory, but put everything into =~myhome= directory instead to clean up the mess created by applications.
+Dot files will be setup later by ansible roles in [[https://github.com/novicecpp/home-config-ansible-private][home-config-ansible-private]].
+*** Clone [[https://github.com/novicecpp/home-config][home-config]] and [[https://github.com/novicecpp/home-config-private][home-config-private]] to =~/myhome=. Need ssh-agent to clone private repo.
+#+begin_src bash
+CREDENTIALS_PATH=/path/to/credentials-store
+eval $(ssh-agent)
+ssh-add -f "${CREDENTIALS_PATH}"/private/github
+cd ~/myhome
+git clone git@github.com:novicecpp/home-config.git
+cd home-config
+git submodule update --init
+#+end_src
+*** Clone and Running home-config-ansible
+#+begin_src bash
+cd ~/myhome
+git clone git@github.com:novicecpp/home-config-ansible.git
+cd home-config-ansible
+git submodule update --init
+#+end_src
+*** Run ansible
+#+begin_src bash
+bash example_run.sh  # Switch playbook and inventory to the machine you run
+#+end_src
+*** If dnf has updated linux-firmware (fedora), restart cold boot.
+For lenovo X1/P1,
+- Remove power cord
+- Restart
+- Open bios menu > Power > Turn of built-in battery
+- wait 5 seconds
+- Plug in power cord, open laptop

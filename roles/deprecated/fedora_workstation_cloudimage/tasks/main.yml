@@ -1,8 +1,0 @@
----
-- name: install Fedora Workstation
-  ansible.builtin.dnf:
-    name: "@Fedora Workstation"
-    state: present
-- name: gui
-  shell: >
-    systemctl set-default graphical.target
