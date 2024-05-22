@@ -40,6 +40,22 @@ git clone git@github.com:novicecpp/home-config.git
 cd home-config
 git submodule update --init
 #+end_src
+*** Run home-config-ansible
+#+begin_src bash
+cd ~/myhome/home-config-ansible
+bash example_run.sh  # Switch playbook and inventory to the machine you run in the script.
+#+end_src
+*** Run home-config setup
+TBD
+** Note
+*** When OS packages update has =linux-firmware=, restart cold boot is required
+For Lenovo X1/P1 Gen 2,
+- Remove power cord.
+- Restart.
+- Open bios menu > Power > Turn of built-in battery.
+- wait 5 seconds.
+- Plug in power cord, open laptop.
+** Development
 *** Setup pipenv
 Copy from [[https://github.com/novicecpp/home-config/blob/f37721c998950a5ae8d92c509dde4182aa2b2126/bash/pyenv.sh#L9-L29][pyenv.sh]].
 #+begin_src bash
@@ -68,19 +84,3 @@ f_pyenv_init_pipenv ()
 
 f_pyenv_init_pipenv 3.11 && pipenv sync
 #+end_src
-
-*** Run home-config-ansible
-#+begin_src bash
-cd ~/myhome/home-config-ansible
-bash example_run.sh  # Switch playbook and inventory to the machine you run in the script.
-#+end_src
-*** Run home-config setup
-TBD
-** Note
-*** OS packages has =linux-firmware= update, restart cold boot.
-For Lenovo X1/P1,
-- Remove power cord.
-- Restart.
-- Open bios menu > Power > Turn of built-in battery.
-- wait 5 seconds.
-- Plug in power cord, open laptop.
