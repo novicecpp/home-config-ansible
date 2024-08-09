@@ -12,7 +12,7 @@ makedepends=('git')
 conflicts=('emacs')
 options=(!strip)
 # getting source from local dir instead to avoid download source code everytime
-#source=('emacs::git+https://github.com/emacs-mirror/emacs#commit=1111111111111111111111111111111111111111')
+#source=('emacs::git+https://github.com/emacs-mirror/emacs')
 #b2sums=('SKIP')
 
 prepare() {
