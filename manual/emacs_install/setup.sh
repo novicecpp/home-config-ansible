@@ -6,8 +6,9 @@ set -euo pipefail
 which pacman
 retval=$?
 if [[ $retval == 0 ]]; then
-    sudo pacman -R emacs-nox --noconfirm
-    sudo pacman -R emacs --noconfirm
+    echo "try to remove emacs from pacman"
+    sudo pacman -R emacs-nox --noconfirm || true
+    sudo pacman -R emacs --noconfirm || true
 fi
 
 # copy emacs.service to systemd
