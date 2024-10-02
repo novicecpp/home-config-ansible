@@ -10,6 +10,6 @@ if [[ $ID = 'arch' ]]; then
 else
     bash make.sh
 fi
-emacs --eval '(progn (straight-pull-all) (save-buffers-kill-terminal))'
+emacs --eval '(progn (elpaca-pull-all) (save-buffers-kill-terminal))'
 systemctl restart --user emacs --no-block
 popd

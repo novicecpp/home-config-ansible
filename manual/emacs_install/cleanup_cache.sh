@@ -6,5 +6,7 @@ systemctl stop --user emacs
 pushd ~/.emacs.d/
 rm -rf rm -rf eln-cache elpa straight elpaca
 popd
-emacs --eval '(progn (elpaca-pull-all) (save-buffers-kill-terminal))'
-systemctl start --user emacs
+echo "start emacs to reinstall packages and start emacs daemon again: "
+echo "systemctl start --user emacs"
+# it does not work
+# emacs --eval '(progn (elpaca-pull-all) (save-buffers-kill-terminal))'
