@@ -7,9 +7,10 @@ Workstation setup scripts. All roles (except the private one) are now migrated t
     - git
     - sudo
     - ssh and ssh-agent
-    - sudo # with no password
+    - sudo
   #+end_src
 - Credentials directory
+- Local account with =sudo= no password (Or use =init/sudoer.sh=)
 ** Bootstrap (manual)
 *** Create =myhome= directory.
 #+begin_src bash
