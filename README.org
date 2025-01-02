@@ -1,27 +1,42 @@
 #+Startup: showall
 * home-config-ansible
-Workstation setup scripts. All roles (except the private one) are now migrated to =novicecpp.homeconfig= [[https://github.com/novicecpp/mygalaxy][My (Ansible) Galaxy]].
+Workstation setup scripts. All roles (except the private one) are now migrated to [[https://github.com/novicecpp/mygalaxy][My (Ansible) Galaxy]].
 ** Prerequisite
-*** Packages
-- git
-- sudo
-- ssh and ssh-agent
-- ansible
-- local user with root access
-*** Credential
-Do not forget setup credentials storage before run setup.
-*** Initial script
-For Fedora, you can use [[file:init/fedora.sh::! /bin/bash][init/fedora.sh]] script to bootstrap.
-For Archlinux, it is already setup in installation step [[file:archlinux/bootstrap.yml::- hosts: localhost][archlinux/bootstrap.yml]].
-** Setup
-*** Create myhome directory
+- Packages
+  #+begin_src text
+    - git
+    - sudo
+    - ssh and ssh-agent
+    - sudo # with no password
+  #+end_src
+- Credentials directory
+** Bootstrap (manual)
+*** Create =myhome= directory.
 #+begin_src bash
 mkdir ~/myhome
 #+end_src
-Note: I do not do backup whole home directory, but put everything into =~/myhome= directory instead to clean up the mess created by applications when reinstall OS.
-
-Dot files will be setup later by ansible roles in [[https://github.com/novicecpp/home-config-ansible-private][home-config-ansible-private]].
-*** Setup this repo and initialize [[https://github.com/novicecpp/home-config-ansible-private][home-config-ansible-private]] and [[https://github.com/novicecpp/mygalaxy][mygalaxy]].
+Note: I do not back up the whole home directory, but put everything into =~/myhome= instead to clean up the mess left by applications when reinstalling the OS.
+*** Symlink/copy credentials path-to-keys directory.
+#+begin_src bash
+CREDENTIALS_BACKUPPATH=/path/to/backup/creds
+CREDENTIALS_PATH=/path/to/credentials-store
+cp $CREDENTIALS_BACKUPPATH $CREDENTIALS_PATH
+#+end_src
+*** Add github ssh key to =ssh-agent= to pull this repository.
+#+begin_src bash
+  CREDENTIALS_PATH=/path/to/credentials-store
+  SSH_KEY="${CREDENTIALS_PATH}/path-to-ssh-key"
+  eval "$(ssh-agent)"
+  ssh-add -f "${CREDENTIALS_PATH}"
+  # adding ssh config
+  cat > ~/.ssh/config <<-EOF
+  Host github.com
+      HostName github.com
+      User git
+      IdentityFile $SSH_KEY
+  EOF
+#+end_src
+*** Clone this repo and initialize [[https://github.com/novicecpp/home-config-ansible-private][home-config-ansible-private]], [[https://github.com/novicecpp/mygalaxy][mygalaxy]].
 #+begin_src bash
 cd ~/myhome
 git clone git@github.com:novicecpp/home-config-ansible.git
@@ -30,57 +45,31 @@ git submodule update --init
 # install galaxy deps and symlink mygalaxy to ~/.ansible
 bash mygalaxy/install.sh
 #+end_src
-*** Clone [[https://github.com/novicecpp/home-config][home-config]] and [[https://github.com/novicecpp/home-config-private][home-config-private]] to =~/myhome=. Need ssh-agent to clone private repo.
+*** Clone [[https://github.com/novicecpp/home-config][home-config]] and [[https://github.com/novicecpp/home-config-private][home-config-private]] to =~/myhome=.
 #+begin_src bash
-CREDENTIALS_PATH=/path/to/credentials-store
-eval $(ssh-agent)
-ssh-add -f "${CREDENTIALS_PATH}"/private/github
 cd ~/myhome
 git clone git@github.com:novicecpp/home-config.git
 cd home-config
 git submodule update --init
 #+end_src
+*** Install pyenv/venv and ansible
+#+begin_src bash
+cd ~/myhome/home-config-ansible
+bash pyenv_init.sh
+#+end_src
 *** Run home-config-ansible
 #+begin_src bash
 cd ~/myhome/home-config-ansible
+source .venv/bin/activate # sourcing venv
 bash example_run.sh  # Switch playbook and inventory to the machine you run in the script.
 #+end_src
 *** Run home-config setup
 TBD
 ** Note
-*** When OS packages update has =linux-firmware=, restart cold boot is required
+*** When updating "linux-firmware", you need to do "cold boot".
 For Lenovo X1/P1 Gen 2,
 - Remove power cord.
 - Restart.
 - Open bios menu > Power > Turn of built-in battery.
 - wait 5 seconds.
 - Plug in power cord, open laptop.
-** Development
-*** Setup pipenv
-Copy from [[https://github.com/novicecpp/home-config/blob/f37721c998950a5ae8d92c509dde4182aa2b2126/bash/pyenv.sh#L9-L29][pyenv.sh]].
-#+begin_src bash
-f_pyenv_init_pipenv ()
-{
-    if [[ "$#" -ne 1 ]]; then
-        echo 'Error: python version required.';
-        echo "Usage: ${FUNCNAME[0]} <python_version>";
-        return 1;
-    fi;
-    PY_VERSION=${1};
-    if [[ -d .venv ]]; then
-        echo 'Error: .venv exists.';
-        return 1;
-    fi;
-    export PYENV_ROOT="$HOME/.pyenv";
-    command -v pyenv > /dev/null || export PATH="$PYENV_ROOT/bin:$PATH";
-    eval "$(pyenv init -)";
-    pyenv shell "${PY_VERSION}" || rc=$?;
-    [[ $rc -ne 0 ]] && return "$rc";
-    python -m venv .venv --prompt "$(basename $PWD)";
-    source .venv/bin/activate;
-    pip install -U pip;
-    pip install pipenv
-}
-
-f_pyenv_init_pipenv 3.11 && pipenv sync
-#+end_src

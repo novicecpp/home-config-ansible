@@ -1,2 +1,5 @@
+manual/emacs_install/aur
 manual/emacs_install/emacs
 .venv
+.pyenv
+.python-version
