@@ -2,6 +2,7 @@
 set -euo pipefail
 
 PYENV_VERSION=2.5.0
+PYENV_ROOT=.venv
 
 # https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
 
@@ -19,11 +20,11 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 pushd $SCRIPT_DIR
 
 # install pyenv
-if [[ ! -d .pyenv ]]; then
-    git clone --branch "v${PYENV_VERSION}" https://github.com/pyenv/pyenv.git $SCRIPT_DIR/.pyenv
+if [[ ! -d $PYENV_ROOT/.git ]]; then
+    git clone --branch "v${PYENV_VERSION}" https://github.com/pyenv/pyenv.git $PYENV_ROOT
 fi
 
-export PYENV_ROOT=.pyenv
+export PYENV_ROOT
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
 
@@ -32,10 +33,12 @@ PYTHON_VERSION=$(trim $(grep python_version Pipfile | awk -F '=' '{print $2}'))
 # install python
 pyenv install -s $PYTHON_VERSION
 pyenv local $PYTHON_VERSION
+pyenv rehash
 
 # install
 python -m venv .venv --prompt "home-config-ansible"
 source .venv/bin/activate
-pip install -U pip pipenv
+pip install -U pip
+pip install pipenv
 pipenv install
 popd
