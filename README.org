@@ -56,7 +56,7 @@ git submodule update --init
 *** Install pyenv/venv and ansible
 #+begin_src bash
 cd ~/myhome/home-config-ansible
-bash pyenv_init.sh
+bash init/pyenv.sh
 #+end_src
 *** Run home-config-ansible
 #+begin_src bash
