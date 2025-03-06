@@ -37,7 +37,10 @@ build() {
     # --with-json
     # replaced/enabled by pgtk
     #--with-x-toolkit=gtk3 --with-xft --with-xpm --with-cairo
-    WITH_OPTIONS="--with-dbus --with-harfbuzz --with-xwidgets --with-mailutils --with-sqlite3 --with-libsystemd"
+    #WITH_OPTIONS="--with-dbus --with-harfbuzz --with-xwidgets --with-mailutils --with-sqlite3 --with-libsystemd"
+    # no xwidget for now due to the version arch provides is newer than required.
+    # should i start nix now?
+    WITH_OPTIONS="--with-dbus --with-harfbuzz --with-mailutils --with-sqlite3 --with-libsystemd"
     IMAGE_OPTIONS="--with-gif --with-jpeg --with-png --with-rsvg --with-tiff --with-webp "
     NEW_FEATURE_OPTIONS="--with-native-compilation --with-tree-sitter --with-pgtk"
     # XXFLAGS all copy from fedora build
