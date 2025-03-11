@@ -10,21 +10,21 @@ license=('GPL3')
 depends=('libgccjit' 'texinfo' 'tree-sitter' 'webkit2gtk' 'libotf')
 makedepends=('git')
 conflicts=('emacs')
-options=(!strip)
+options=(!strip !debug)
 # getting source from local dir instead to avoid download source code everytime
 #source=('emacs::git+https://github.com/emacs-mirror/emacs')
 #b2sums=('SKIP')
 
 prepare() {
-    # hardcode emacs git path to emacs_install/emacs
-    cp -r ../../emacs $srcdir/emacs
+    # use emacs git dir from in the same PKGBUILD dir
+    cp -r ../emacs $srcdir
     cd $srcdir/emacs
     git clean -fdx
     ./autogen.sh
 }
 
 pkgver() {
-    echo $(cat ../../emacs_master | cut -c -8).git
+    echo $(date +"%Y%m%d")_$(cat ${srcdir}/../emacs_master | cut -c -8).git
 }
 
 build() {
@@ -45,8 +45,8 @@ build() {
     NEW_FEATURE_OPTIONS="--with-native-compilation --with-tree-sitter --with-pgtk"
     # XXFLAGS all copy from fedora build
     # debian/ubuntu/fedora has -fstack-protector-strong and LDFLAGS="-Wl,-z,relro"
-    CFLAGS="-O3 -m64 -march=native -mtune=native -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -fstack-protector-strong"
-    CXXFLAGS="-O3 -m64 -march=native -mtune=native -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -fstack-protector-strong"
+    CFLAGS="-O2 -m64 -march=native -mtune=native -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -fstack-protector-strong"
+    CXXFLAGS="-O2 -m64 -march=native -mtune=native -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -fstack-protector-strong"
     LDFLAGS="-Wl,-z,relro"
     # shellcheck disable=SC2086
     ./configure \
@@ -59,6 +59,7 @@ build() {
         CXXFLAGS="${CXXFLAGS}" \
         LDFLAGS="${LDFLAGS}"
     make
+
 }
 
 package() {
