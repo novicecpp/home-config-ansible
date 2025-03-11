@@ -10,6 +10,6 @@ if [[ $ID = 'arch' ]]; then
 else
     bash make.sh
 fi
-emacs --eval '(progn (elpaca-pull-all) (save-buffers-kill-terminal))'
-systemctl restart --user emacs --no-block
+echo "Emacs install successfully."
+echo "Start emacs manually before start the daemon to avoid weird crash."
 popd
