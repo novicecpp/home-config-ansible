@@ -1,7 +1,6 @@
 # This PKGBUILD rely on wrapper make_aur.sh and emacs_install environemnts to
 # build aur package
 pkgname=emacs-master
-pkgver=1
 pkgrel=1
 pkgdesc="Emacs custom build"
 url=""
@@ -13,22 +12,29 @@ conflicts=('emacs')
 options=(!strip !debug)
 # getting source from local dir instead to avoid download source code everytime
 #source=('emacs::git+https://github.com/emacs-mirror/emacs')
-#b2sums=('SKIP')
+source=(
+    'emacs_master'
+    'emacs.tar'
+)
+b2sums=(
+    'SKIP'
+    'SKIP'
+)
 
 prepare() {
     # use emacs git dir from in the same PKGBUILD dir
-    cp -r ../emacs $srcdir
-    cd $srcdir/emacs
+    cd emacs
     git clean -fdx
     ./autogen.sh
 }
 
-pkgver() {
-    echo $(date +"%Y%m%d")_$(cat ${srcdir}/../emacs_master | cut -c -8).git
+pkgver_f() {
+    echo $(date +"%Y%m%d")_$(cat ./emacs_master | cut -c -8).git
 }
+pkgver=$(pkgver_f)
 
 build() {
-    cd $srcdir/emacs
+    cd emacs
     PATH_OPTIONS="--prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib --libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/var/lib --mandir=/usr/share/man --infodir=/usr/share/info"
     # copy from fedora build
     # --without-gpm
@@ -63,6 +69,6 @@ build() {
 }
 
 package() {
-    cd $srcdir/emacs
+    cd emacs
     make DESTDIR="${pkgdir}" install install-etc
 }
